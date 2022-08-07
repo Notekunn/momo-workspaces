@@ -4,10 +4,15 @@
   "author": "DC <cuong.nl5.kma@gmail.com>",
   "license": "MIT",
   "repository": "git@github.com:Notekunn/momo-workspaces.git",
-  "packages": [
+  "workspaces": [
     "libraries/*"
   ],
+  "scripts": {
+    "format:check": "prettier --check \"**/*.{js,jsx,mjs,ts,tsx,md,yml,yaml}\"",
+    "format:write": "prettier --write \"**/*.{js,jsx,mjs,ts,tsx,md,yml,yaml}\""
+  },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "prettier": "^2.7.1"
   }
 }

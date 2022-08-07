@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "prepare": "husky install",
+    "test": "lerna run test --include-dependencies --stream",
     "lint-staged": "lint-staged --config lint-staged.js",
     "lint": "eslint --ext .ts",
     "lint:fix": "eslint --ext .ts --fix",

@@ -1,0 +1,13 @@
+{
+  "name": "@notekunn/momo-workspaces",
+  "private": true,
+  "author": "DC <cuong.nl5.kma@gmail.com>",
+  "license": "MIT",
+  "repository": "git@github.com:Notekunn/momo-workspaces.git",
+  "packages": [
+    "libraries/*"
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}

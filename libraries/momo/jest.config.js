@@ -2,6 +2,6 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testPathIgnorePatterns: ['lib'],
+  testMatch: ['<rootDir>/src/**/*.(spec|test).ts'],
   setupFiles: ['<rootDir>/.jest/setEnvVars.js'],
 }

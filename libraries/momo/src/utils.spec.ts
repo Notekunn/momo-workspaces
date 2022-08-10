@@ -74,12 +74,11 @@ describe('nomalizeDate()', () => {
 
 describe('getCheckSum()', () => {
   it('get check sum', () => {
-    const ohash = 'c279b4b1023d209d2c3b01b52ceb2a6ce4b8878a5e5e4660e64bfd29dae17f62'
-    const setupKey = 'czpYAqMKHcPk9WY10ge/NekdmHMWFoePI+b35vvWvVWOnaWgAJysOkabCget2wxH'
-    const checkSum = 'uGwcuWjmIXnWFhPlwUcG9lIyfYfT8aWz2EMuYC+9YgGiFJNrLjZLHR4cr9zY/iFv0xQtuOpjFu6cEJ7hAfUdPg=='
-    const checksumKey = decryptAES(setupKey, ohash)
-
-    const checkSumPlainText = decryptAES(checkSum, checksumKey)
-    console.log(checkSumPlainText)
+    // const ohash = 'c279b4b1023d209d2c3b01b52ceb2a6ce4b8878a5e5e4660e64bfd29dae17f62'
+    // const setupKey = 'czpYAqMKHcPk9WY10ge/NekdmHMWFoePI+b35vvWvVWOnaWgAJysOkabCget2wxH'
+    // const checkSum = 'uGwcuWjmIXnWFhPlwUcG9lIyfYfT8aWz2EMuYC+9YgGiFJNrLjZLHR4cr9zY/iFv0xQtuOpjFu6cEJ7hAfUdPg=='
+    // const checksumKey = decryptAES(setupKey, ohash)
+    // const checkSumPlainText = decryptAES(checkSum, checksumKey)
+    // console.log(checkSumPlainText)
   })
 })

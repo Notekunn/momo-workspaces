@@ -2,7 +2,7 @@
   "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": ["libraries/*"],
+  "packages": ["libraries/*", "apps/*"],
   "command": {
     "publish": {
       "yes": true,

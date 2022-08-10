@@ -5,7 +5,8 @@
   "license": "UNLICENSE",
   "repository": "git@github.com:Notekunn/momo-workspaces.git",
   "workspaces": [
-    "libraries/*"
+    "libraries/*",
+    "apps/*"
   ],
   "scripts": {
     "prepare": "husky install",

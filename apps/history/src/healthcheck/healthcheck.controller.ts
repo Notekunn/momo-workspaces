@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common'
 
 @Controller('healthcheck')
 export class HealthCheckController {
@@ -7,6 +7,6 @@ export class HealthCheckController {
     return {
       status: 'OK',
       version: '0.0.0',
-    };
+    }
   }
 }

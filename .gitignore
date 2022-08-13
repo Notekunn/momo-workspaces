@@ -2,6 +2,8 @@ node_modules
 .npmrc
 yarn-error.log
 
+.env
+data/
 # Logs
 logs
 *.log

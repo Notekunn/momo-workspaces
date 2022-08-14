@@ -15,6 +15,7 @@ export const typeormConfig: TypeOrmModuleOptions = {
   entities: ['dist/**/*.entity.js'],
   subscribers: ['dist/**/*.subscriber.js'],
   migrations: ['dist/databases/migrations/**/*.js'],
+  synchronize: process.env.NODE_ENV === 'development',
 }
 
 const dataSource = new DataSource(typeormConfig as DataSourceOptions)

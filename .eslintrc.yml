@@ -11,6 +11,8 @@ parserOptions:
 plugins:
   - '@typescript-eslint'
   - jest
+ignorePatterns:
+  - .eslintrc.yml
 rules:
   comma-dangle:
     - error
@@ -25,3 +27,7 @@ rules:
     - off
   '@typescript-eslint/no-explicit-any':
     - off
+  indent:
+    - off
+  newline-before-return:
+    - error

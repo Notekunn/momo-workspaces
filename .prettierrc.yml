@@ -4,3 +4,4 @@ printWidth: 120
 arrowParens: always
 trailingComma: all
 endOfLine: lf
+useTabs: false

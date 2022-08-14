@@ -19,11 +19,13 @@ export function getAuthHeader(phoneNumber: string, authToken: string, requestEnc
     aes_key: aesKey,
     requestkey: requestKey,
   }
+
   return [aesKey, headers] as const
 }
 
 export function getDefaultForm(phoneNumber: string) {
   const timestamp = new Date().getTime()
+
   return {
     ...appConfig,
     cmdId: `${timestamp}000000`,
@@ -37,6 +39,7 @@ export function getDefaultForm(phoneNumber: string) {
 
 export function getDefaultHeader() {
   const { appVer, appCode, deviceOS, lang } = appConfig
+
   return {
     app_version: appVer,
     app_code: appCode,
@@ -85,6 +88,7 @@ export function getRandomKey(len: number): string {
   for (let i = 0; i < len; i++) {
     rKey += characters.charAt(Math.floor(Math.random() * charactersLength))
   }
+
   return rKey
 }
 
@@ -99,6 +103,7 @@ export function getRandomImei() {
   ]
 
   const imei = parts.map((sliceData) => timeMd5.slice(...sliceData)).join('-')
+
   return imei
 }
 
@@ -115,6 +120,7 @@ export function getRandomOneSignal() {
   ]
 
   const imei = parts.map((sliceData) => timeMd5.slice(...sliceData)).join('-')
+
   return imei
 }
 
@@ -125,17 +131,20 @@ export function nomalizeSecret(secret: string, size = 32): string {
 export function encryptAES(plainText: string, secret: string): string {
   const iv = Buffer.from(new Uint16Array(16))
   const encryptor = createCipheriv('AES-256-CBC', nomalizeSecret(secret), iv)
+
   return encryptor.update(plainText, 'utf8', 'base64') + encryptor.final('base64')
 }
 
 export function decryptAES(cipherText: string, secret: string): string {
   const iv = Buffer.from(new Uint16Array(16))
   const decryptor = createDecipheriv('AES-256-CBC', nomalizeSecret(secret), iv)
+
   return decryptor.update(cipherText, 'base64', 'utf8') + decryptor.final('utf8')
 }
 
 export function encodeRSA(plainText: string, key: string) {
   const buffer = Buffer.from(plainText)
+
   return publicEncrypt(
     {
       key,

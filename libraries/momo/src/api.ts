@@ -1,6 +1,24 @@
-import { appConfig, historyAppConfig } from './app'
 import axios from 'axios'
+
+import { appConfig, historyAppConfig } from './app'
 import { MomoAPIEndpoint, MomoMessage, MomoMessageClass } from './enum'
+import { sendEncryptedData } from './http'
+import {
+  BrowseHistoryPayload,
+  ConfirmOTPPayload,
+  ConfirmOTPResponse,
+  ConfirmTransactionPayload,
+  ConfirmTransactionResponse,
+  FindReceiverProfilePayload,
+  FindReceiverProfileResponse,
+  HistoryMapperResponse,
+  InitTransactionPayload,
+  InitTransactionResponse,
+  LoginPayload,
+  LoginResponse,
+  TransactionDetailPayload,
+  TransactionDetailResponse,
+} from './interface'
 import {
   generateCheckSum,
   getDefaultDevice,
@@ -13,23 +31,6 @@ import {
   nomalizeDate,
   transactionDetailMapper,
 } from './utils'
-import {
-  BrowseHistoryPayload,
-  ConfirmOTPPayload,
-  ConfirmOTPResponse,
-  LoginPayload,
-  LoginResponse,
-  HistoryMapperResponse,
-  TransactionDetailPayload,
-  TransactionDetailResponse,
-  FindReceiverProfilePayload,
-  InitTransactionPayload,
-  FindReceiverProfileResponse,
-  ConfirmTransactionPayload,
-  InitTransactionResponse,
-  ConfirmTransactionResponse,
-} from './interface'
-import { sendEncryptedData } from './http'
 
 const api = axios.create({})
 

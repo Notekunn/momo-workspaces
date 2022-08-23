@@ -1,6 +1,6 @@
-import { DataSource, DataSourceOptions } from 'typeorm'
 import { TypeOrmModuleOptions } from '@nestjs/typeorm'
 import { config } from 'dotenv'
+import { DataSource, DataSourceOptions } from 'typeorm'
 
 config()
 
@@ -20,4 +20,5 @@ export const typeormConfig: TypeOrmModuleOptions = {
 
 const dataSource = new DataSource(typeormConfig as DataSourceOptions)
 
+// eslint-disable-next-line import/no-default-export
 export default dataSource

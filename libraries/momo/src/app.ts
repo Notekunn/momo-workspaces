@@ -1,8 +1,8 @@
 export const appConfig = {
   lang: 'vi',
   appId: 'vn.momo.platform',
-  appVer: 31171,
-  appCode: '3.1.17',
+  appVer: 40103,
+  appCode: '4.0.10',
   deviceOS: 'IOS',
   buildNumber: 0,
   channel: 'APP',

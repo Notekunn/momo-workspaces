@@ -5,7 +5,7 @@ import {
   getRandomImei,
   getRandomOneSignal,
   hashSHA,
-  nomalizeDate,
+  normalizeDate,
   nomalizeSecret,
 } from './utils'
 
@@ -67,8 +67,8 @@ describe('encodeRSA()', () => {
 
 describe('nomalizeDate()', () => {
   it('nomalize Date', () => {
-    expect(nomalizeDate(new Date(2022, 11, 10)).toISOString()).toEqual('2022-12-09T17:00:00.000Z')
-    expect(nomalizeDate('05/08/2022').toISOString()).toEqual('2022-08-04T17:00:00.000Z')
+    expect(normalizeDate(new Date(2022, 11, 10)).toISOString()).toEqual('2022-12-09T17:00:00.000Z')
+    expect(normalizeDate('05/08/2022').toISOString()).toEqual('2022-08-04T17:00:00.000Z')
   })
 })
 

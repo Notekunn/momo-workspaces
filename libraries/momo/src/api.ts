@@ -10,7 +10,7 @@ import {
   hashSHA,
   historyMapper,
   momoErrorHandler,
-  nomalizeDate,
+  normalizeDate,
   transactionDetailMapper,
 } from './utils'
 import {
@@ -65,14 +65,14 @@ export async function requestOTP({ phoneNumber, imei, oneSignal, rKey }: Request
     ...getDefaultHeader(),
     msgtype: MomoMessage.SEND_OTP,
   }
-
+  console.log('requestOTP', bodySend)
   const { data } = await api.request({
     method: 'POST',
     url: MomoAPIEndpoint.SEND_OTP,
     headers,
     data: bodySend,
   })
-
+  console.log('data', data)
   const error = momoErrorHandler(data)
 
   if (error) {
@@ -191,8 +191,8 @@ export async function login(payload: LoginPayload): Promise<LoginResponse> {
 
 export async function browseHistory(payload: BrowseHistoryPayload) {
   const { startDate, endDate, page = 1, limit = 10 } = payload
-  const start = nomalizeDate(startDate)
-  const end = nomalizeDate(endDate)
+  const start = normalizeDate(startDate)
+  const end = normalizeDate(endDate)
   if (end.isBefore(start)) {
     throw new Error('startDate must before endDate')
   }

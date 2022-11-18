@@ -55,8 +55,8 @@ export function getDefaultDevice(phoneNumber: string, imei: string) {
     imei,
     cname: 'Vietnam',
     ccode: '084',
-    device: 'iPhone 11',
-    firmware: '13.5.1',
+    device: 'iPhone 13',
+    firmware: '15.5.1',
     hardware: 'iPhone',
     manufacture: 'Apple',
     csp: 'Viettel',
@@ -67,6 +67,7 @@ export function getDefaultDevice(phoneNumber: string, imei: string) {
 }
 
 export function momoErrorHandler(response: any) {
+  console.log(response)
   return response.errorCode ? response.errorDesc : undefined
 }
 
@@ -215,7 +216,7 @@ export function historyMapper(rawData: any): HistoryMapperResponse {
   }
 }
 
-export function nomalizeDate(dateOrString: string | Date): Moment {
+export function normalizeDate(dateOrString: string | Date): Moment {
   const date = moment(dateOrString, typeof dateOrString === 'string' ? 'DD/MM/YYYY' : undefined)
 
   return date
@@ -239,11 +240,13 @@ export function transactionDetailMapper(momoMsg: any): TransactionDetailResponse
   } = momoMsg
   let serviceDataJSON: any = {}
   try {
+    console.log(serviceData)
     serviceDataJSON = JSON.parse(serviceData)
   } catch (error) {
+    serviceDataJSON = {}
     console.log(`Error when parse: ${serviceData}`)
   }
-  const { COMMENT_VALUE } = serviceDataJSON
+  const { COMMENT_VALUE = null } = serviceDataJSON || {}
 
   return {
     transId,

@@ -103,11 +103,12 @@ describe('transactionDetail()', () => {
       authToken,
       phoneNumber,
       requestEncryptKey,
-      startDate: '04/04/2022',
-      endDate: '04/08/2022',
+      startDate: '10/10/2022',
+      endDate: '18/11/2022',
       page: 1,
       limit: 10,
     })
+    console.log(historyData)
     expect(historyData.length).toBeGreaterThan(0)
     const { transId } = historyData[0]
     const data = await transactionDetail({

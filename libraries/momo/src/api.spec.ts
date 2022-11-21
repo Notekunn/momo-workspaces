@@ -71,8 +71,8 @@ describe('browseHistory()', () => {
       authToken,
       phoneNumber,
       requestEncryptKey,
-      startDate: '04/04/2022',
-      endDate: '04/08/2022',
+      startDate: '01/10/2022',
+      endDate: '21/11/2022',
       page: 1,
       limit: 10,
     })
@@ -103,12 +103,11 @@ describe('transactionDetail()', () => {
       authToken,
       phoneNumber,
       requestEncryptKey,
-      startDate: '10/10/2022',
-      endDate: '18/11/2022',
+      startDate: '01/10/2022',
+      endDate: '21/11/2022',
       page: 1,
       limit: 10,
     })
-    console.log(historyData)
     expect(historyData.length).toBeGreaterThan(0)
     const { transId } = historyData[0]
     const data = await transactionDetail({
@@ -144,7 +143,7 @@ describe('findReceiverProfile()', () => {
       phoneNumber,
       requestEncryptKey,
       setupKey,
-      targetUserId: '0329664058',
+      targetUserId: '0911175581',
     })
     expect(name).toEqual(expect.any(String))
     expect(agentId).toEqual(expect.any(Number))
@@ -156,7 +155,7 @@ describe('initTransaction()', () => {
     const { amount, transactionId } = await initTransaction({
       partner: {
         name: 'Trần Đức Cường',
-        id: '0329664058',
+        id: '0911175581',
       },
       amount: 100,
       authToken,
@@ -172,7 +171,7 @@ describe('initTransaction()', () => {
 })
 
 describe('sendMoney()', () => {
-  it('should send money to accout', async () => {
+  it('should send money to account', async () => {
     const result = await sendMoney({
       partner: {
         name: '',

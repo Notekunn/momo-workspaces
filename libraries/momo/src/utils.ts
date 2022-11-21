@@ -3,6 +3,8 @@ import { CheckSumPayload, HistoryMapperResponse, TransactionDetailResponse } fro
 import moment, { Moment } from 'moment'
 import { MomoMessage, MomoTransfer } from './enum'
 import { appConfig } from './app'
+import { ServiceData } from './types'
+import { serviceDataMapping } from './constants'
 
 export function getAuthHeader(phoneNumber: string, authToken: string, requestEncryptKey: string) {
   const aesKey = getRandomKey(32)
@@ -222,6 +224,21 @@ export function normalizeDate(dateOrString: string | Date): Moment {
   return date
 }
 
+export function parseServiceData(data: string): ServiceData {
+  try {
+    const jsonObject = JSON.parse(data)
+    const serviceData: ServiceData = {}
+    for (const serviceDataKey in serviceDataMapping) {
+      const key = <keyof ServiceData>serviceDataKey
+      const value = serviceDataMapping[key]
+      serviceData[key] = jsonObject[value] || ''
+    }
+    return serviceData
+  } catch (error) {
+    return {}
+  }
+}
+
 export function transactionDetailMapper(momoMsg: any): TransactionDetailResponse {
   const {
     transId,
@@ -236,17 +253,9 @@ export function transactionDetailMapper(momoMsg: any): TransactionDetailResponse
     transhisData,
     postBalance = 0,
     totalAmount = 0,
-    serviceData,
   } = momoMsg
-  let serviceDataJSON: any = {}
-  try {
-    console.log(serviceData)
-    serviceDataJSON = JSON.parse(serviceData)
-  } catch (error) {
-    serviceDataJSON = {}
-    console.log(`Error when parse: ${serviceData}`)
-  }
-  const { COMMENT_VALUE = null } = serviceDataJSON || {}
+
+  const serviceData = parseServiceData(momoMsg.serviceData)
 
   return {
     transId,
@@ -265,6 +274,6 @@ export function transactionDetailMapper(momoMsg: any): TransactionDetailResponse
     transhisData,
     postBalance,
     totalAmount,
-    comment: COMMENT_VALUE,
+    ...serviceData,
   }
 }
